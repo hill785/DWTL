@@ -1,2 +1,2 @@
 # DWTL
-Deter workflow time lock,,
+Determenistic Workflow Time Lock,,
