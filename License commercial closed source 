@@ -1,0 +1,234 @@
+DWTL CRYPTOGRAPHIC GATEWAY NODE CORE
+COMMERCIAL LICENSE
+Version 1.0 — 2026
+
+MintProofDAO™ Seal: 436351437
+Author: G.DzubinskySnr
+Studio: Sovereign Architect Studio™ | LedgerProofDAO™
+Primary Wallet:   0x9e223F20022580739060d5511445C727f51Ee81e
+Secondary Wallet: 0x65f01815D18787e975D3439f480d49e9cb8E98F2
+Royalties Wallet: 0x2260cDeDb644ADaEc54ff36d8C1EA83779256ab0
+Jurisdiction: Tallinn, Estonia — EU / eIDAS
+
+SIP-001 ACTIVE — Any artifact absent MintProofDAO™ Seal 436351437 or either
+wallet address above is NULL AND VOID. DAORevoke™ is the on-chain revocation
+instrument. UNDELETABLE. ETERNAL.
+
+================================================================================
+
+PREAMBLE
+
+This Commercial License governs the use of the DWTL Cryptographic Gateway
+Node Core software ("the Software") by a purchasing individual or legal entity
+("the Licensee") for commercial purposes, including integration into client
+projects, SaaS platforms, paid products, digital marketplace listings, and
+any revenue-generating activity.
+
+This license is granted upon purchase and is effective immediately upon
+payment confirmation. No physical signature is required.
+
+================================================================================
+
+SECTION 1 — DEFINITIONS
+
+1.1  "Software" means the DWTL Cryptographic Gateway Node Core in all
+     editions (JavaScript Edition, WebAssembly Edition), including all source
+     files, documentation, assets, and associated files distributed with it.
+
+1.2  "Licensee" means the individual or legal entity that has purchased this
+     Commercial License.
+
+1.3  "Permitted Product" means any software product, web application, SaaS
+     service, digital marketplace listing, or client deliverable created by
+     the Licensee that incorporates the Software or a derivative of it.
+
+1.4  "End User" means a third party who uses a Permitted Product.
+
+1.5  "Derivative Work" means any modification, adaptation, translation,
+     or extension of the Software created by the Licensee.
+
+================================================================================
+
+SECTION 2 — GRANT OF COMMERCIAL RIGHTS
+
+Subject to the terms and conditions of this license and payment of the
+applicable license fee, G.DzubinskySnr ("the Author") hereby grants the
+Licensee a worldwide, royalty-free (subject to Section 3), non-exclusive,
+non-transferable license to:
+
+2.1  INTEGRATION. Incorporate the Software or Derivative Works into any number
+     of Permitted Products operated or delivered by the Licensee.
+
+2.2  MODIFICATION AND REBRANDING. Modify, adapt, translate, extend, and
+     rebrand the Software for use in Permitted Products. The Licensee may
+     replace visual branding (logo, product name, colour scheme) without
+     obligation to display the original product name in the end-user UI.
+
+2.3  CLIENT DELIVERY. Deliver the Software or Derivative Works as part of
+     client projects, agency deliverables, or freelance work, provided the
+     client does not receive sublicensing rights.
+
+2.4  RESALE IN BUNDLED PRODUCTS. Sell Permitted Products that include the
+     Software as a component, provided the Software is not sold as a
+     standalone component under a different brand without attribution.
+
+2.5  MARKETPLACE LISTING. List Permitted Products (including the Software in
+     modified or rebranded form) on digital marketplaces (Envato, Gumroad,
+     CodeCanyon, personal storefronts, etc.).
+
+2.6  DEPLOYMENT. Deploy Permitted Products on any hosting platform, CDN, or
+     infrastructure, including commercial cloud providers.
+
+================================================================================
+
+SECTION 3 — ROYALTIES AND FEES
+
+3.1  LICENSE FEE. The Commercial License is granted on a one-time purchase
+     basis per Licensee. No ongoing subscription or royalty payments are
+     required on revenue generated through Permitted Products using the
+     Software in its unmodified form.
+
+3.2  ENTERPRISE PROJECTS. For enterprise deployments exceeding 500,000
+     monthly active users or generating over USD 1,000,000 annual revenue
+     directly attributable to the Software, the Licensee must contact the
+     Author to negotiate an Enterprise Addendum.
+
+3.3  PAYMENT RAILS. License payments are accepted via:
+     USDC / USDT to Primary Wallet: 0x9e223F20022580739060d5511445C727f51Ee81e
+     or via invoiced bank transfer through Wise / Payoneer.
+     Contact: gdzubinskysnr@tuta.com
+
+================================================================================
+
+SECTION 4 — RESTRICTIONS
+
+4.1  NO SUBLICENSING. The Licensee may not sublicense the Software to third
+     parties as a standalone product under the same or expanded rights. Client
+     deliverables grant the client a right to use the Permitted Product only,
+     not to further distribute or sublicense the Software.
+
+4.2  CREDENTIAL INTEGRITY. The Licensee may rebrand the visible UI but must
+     not remove, alter, or obscure the MintProofDAO™ Seal (436351437), the
+     Author's name (G.DzubinskySnr), the wallet addresses, or the SIP-001
+     clause from the source code credential blocks (HTML comment blocks,
+     code-level comments). These credentials must survive in the source of
+     every distributed copy.
+
+4.3  NFT MINTING. NFT minting rights for the original Software and its core
+     cryptographic algorithms are exclusive to G.DzubinskySnr. The Licensee
+     may mint NFTs of their own Permitted Products but may not present the
+     core Software as the primary tokenised asset.
+
+4.4  COMPETING PRODUCTS. The Licensee may not use the Software to create a
+     directly competing standalone cryptographic gateway product offered on
+     digital marketplaces under a different brand without a separate agreement
+     with the Author.
+
+4.5  OPEN-SOURCE RELEASE. The Licensee may not release the Software or any
+     Derivative Work under an open-source license that would require the
+     Software's source to be made freely available (including GPL, LGPL, AGPL,
+     or similar copyleft licenses).
+
+4.6  PATENT USE. This license does not grant any rights in the patents or
+     patent applications of the Author.
+
+================================================================================
+
+SECTION 5 — ATTRIBUTION
+
+Under this Commercial License, the Licensee is not required to display
+attribution to G.DzubinskySnr in the end-user interface of a Permitted Product.
+
+However, the following attribution must be preserved in the source code of
+any distributed copy of the Software or Derivative Work (in code comments,
+HTML comment blocks, or equivalent):
+
+    Based on DWTL Cryptographic Gateway Node Core
+    Original Author: G.DzubinskySnr | Sovereign Architect Studio™
+    MintProofDAO™ Seal 436351437 | LedgerProofDAO™
+    Primary Wallet:   0x9e223F20022580739060d5511445C727f51Ee81e
+    Secondary Wallet: 0x65f01815D18787e975D3439f480d49e9cb8E98F2
+    Commercial License v1.0 | SIP-001: ACTIVE
+
+================================================================================
+
+SECTION 6 — DELIVERY AND ACTIVATION
+
+This license is activated upon confirmed payment. The Licensee will receive:
+
+6.1  All Software files as listed in Section 11 of the README.
+6.2  A license confirmation document referencing the Licensee's name or
+     organisation, the purchase date, and the MintProofDAO™ Seal.
+6.3  Email support for integration questions for 30 days from purchase.
+
+================================================================================
+
+SECTION 7 — WARRANTY DISCLAIMER
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED. THE AUTHOR MAKES NO WARRANTIES REGARDING SECURITY, RELIABILITY,
+MERCHANTIBILITY, OR FITNESS FOR A PARTICULAR PURPOSE.
+
+THE LICENSEE IS RESPONSIBLE FOR VALIDATING THE SOFTWARE'S SUITABILITY FOR
+THEIR USE CASE, INCLUDING ANY SECURITY REVIEW REQUIRED FOR THEIR DEPLOYMENT
+ENVIRONMENT.
+
+================================================================================
+
+SECTION 8 — LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL THE AUTHOR, SOVEREIGN ARCHITECT STUDIO™, MINTPROOFDAO™, OR
+LEDGERPROOFDAO™ BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OR INABILITY TO USE
+THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+THE AUTHOR'S TOTAL LIABILITY UNDER THIS LICENSE SHALL NOT EXCEED THE LICENSE
+FEE PAID BY THE LICENSEE FOR THE SOFTWARE.
+
+================================================================================
+
+SECTION 9 — TERMINATION
+
+9.1  This license terminates automatically and without notice if the Licensee
+     violates any term of this license, including removal of credential blocks
+     or unauthorised sublicensing.
+
+9.2  Upon termination the Licensee must cease all distribution of Permitted
+     Products containing the Software and destroy all copies in their
+     possession within 30 days.
+
+9.3  Sections 4, 5, 7, 8, 9, and 10 survive termination.
+
+================================================================================
+
+SECTION 10 — GOVERNING LAW AND DISPUTE RESOLUTION
+
+This license is governed by the laws of Estonia (EU) and applicable European
+Union regulations, including eIDAS. Any dispute arising from this license shall
+be subject to the exclusive jurisdiction of the courts of Tallinn, Estonia.
+
+================================================================================
+
+SECTION 11 — SOVEREIGN IP DECLARATION
+
+This Software is the exclusive intellectual property of G.DzubinskySnr,
+anchored under MintProofDAO™ Seal 436351437, governed by LedgerProofDAO™, and
+protected under SIP-001 Sovereign Invalidation Protocol.
+
+Any artifact, fork, copy, or derivative absent MintProofDAO™ Seal 436351437
+or either wallet address (0x9e223F20022580739060d5511445C727f51Ee81e,
+0x65f01815D18787e975D3439f480d49e9cb8E98F2) is NULL AND VOID.
+
+NFT minting rights: EXCLUSIVE to G.DzubinskySnr.
+Revocation instrument: DAORevoke™ (on-chain).
+Status: UNDELETABLE. ETERNAL.
+
+================================================================================
+
+For licensing enquiries, enterprise agreements, and support:
+Email:  gdzubinskysnr@tuta.com
+X:      @G212991495
+Domain: aiidentitysuite.com
+
+MintProofDAO™ Seal 436351437 | Author G.DzubinskySnr | Sovereign Architect Studio™
+ALL RIGHTS RESERVED | SIP-001 ACTIVE | UNDELETABLE | ETERNAL
