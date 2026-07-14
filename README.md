@@ -1,4 +1,4 @@
-# DWTL
+Ii# DWTL
 Determenistic Workflow Time Lock,,
 # DWTL Cryptographic Gateway Node Core
 
@@ -297,3 +297,270 @@ Grants the licensee rights to modify, rebrand, integrate into client projects, a
 
 MintProofDAO™ Seal 436351437 | Author G.DzubinskySnr | Sovereign Architect Studio™ | LedgerProofDAO™
 ALL RIGHTS RESERVED | SIP-001 ACTIVE | UNDELETABLE | ETERNAL
+================================================================================
+SOVEREIGN DECLARATION OF PRIMITIVES AND NOVELTIES
+DWTL™ PROOF-OF-COMPUTE PROTOCOL ECOSYSTEM
+================================================================================
+
+DECLARATION REFERENCE:  DWTL-DEC-001
+DATE:                   2026-07-14
+AUTHOR:                 G.DzubinskySnr
+STUDIO:                 Sovereign Architect Studio™
+JURISDICTION:           Tallinn, Estonia — EU / eIDAS
+
+GOVERNANCE SEAL A:      MintProofDAO™  · Seal 436351437
+GOVERNANCE SEAL B:      LedgerProofDAO™ · Seal 430
+
+PRIMARY WALLET:         0x9e223F20022580739060d5511445C727f51Ee81e
+SECONDARY WALLET:       0x65f01815D18787e975D3439f480d49e9cb8E98F2
+ROYALTIES WALLET:       0x2260cDeDb644ADaEc54ff36d8C1EA83779256ab0
+
+REVOCATION INSTRUMENT:  DAORevoke™ — on-chain
+SIP-001:                ACTIVE — any artifact absent either Seal or either
+                        wallet address is NULL AND VOID. UNDELETABLE. ETERNAL.
+
+================================================================================
+PREAMBLE
+================================================================================
+
+I, G.DzubinskySnr, Originator, Founder, and Sovereign Architect of Sovereign
+Architect Studio™, hereby declare sole and exclusive authorship, origination,
+and sovereign ownership of all primitives, novelties, concepts, algorithms,
+protocols, product identities, and derivative works enumerated in this
+Declaration.
+
+All items declared herein are authored under the dual governance of
+MintProofDAO™ (Seal 436351437) and LedgerProofDAO™ (Seal 430), anchored
+to IPFS under the primary Pinata gateway:
+blue-impressed-panther-218.mypinata.cloud
+
+This Declaration constitutes a permanent, irrevocable, timestamped record of
+intellectual origination. It predates any subsequent claim, registration, fork,
+copy, or derivative by any third party. SIP-001 Sovereign Invalidation Protocol
+is active across all declared items.
+
+================================================================================
+PART I — CORE PROTOCOL PRIMITIVE
+================================================================================
+
+PRIMITIVE-001 · DWTL™
+DWTL Proof-of-Compute Protocol
+
+The foundational sovereign primitive. A client-side sequential CPU commitment
+engine implementing a Verifiable Delay Function over the Mersenne prime M31
+(2³¹ − 1 = 2,147,483,647), delivering cryptographically bound proof-of-work
+without server infrastructure, trusted third parties, or external dependencies.
+Delivered as a single HTML5 file. Zero npm. Zero CDN. Zero trust assumptions.
+
+Key sub-primitives declared under DWTL™:
+
+  DWTL-P-001  Mersenne M31 Exact Modmul (mulmodM31)
+              16-bit partial product method for exact modular multiplication
+              in IEEE 754 float64, exploiting the Mersenne structure
+              x mod (2³¹−1) = (x >> 31) + (x & M31). Zero precision loss.
+              Zero BigInt heap allocation. Verified: 0 errors / 200,000 tests.
+
+  DWTL-P-002  WASM M31 VDF Core
+              113-byte hand-assembled WebAssembly module. Exports:
+              vdf_run(seed: i32, iterations: i32) -> i32.
+              Uses i64.mul + i64.rem_u for exact modular squaring.
+              Base64-inlined into a single HTML file. Zero external fetch.
+
+  DWTL-P-003  VDF-Bound XOR Cipher
+              Symmetric encryption primitive where the key is derived
+              exclusively from the VDF output via SHA-256 (Web Crypto API).
+              Ciphertext is cryptographically bound to completed proof-of-work.
+              Decryption requires re-execution of the full VDF chain.
+
+  DWTL-P-004  Ephemeral Session Nonce Architecture
+              16-byte cryptographically random nonce regenerated per page load.
+              Seeds both the VDF computation and the ENV badge fingerprint.
+              Guarantees non-replayability across sessions. No server state.
+
+  DWTL-P-005  rAF-Chunked Async VDF Executor
+              requestAnimationFrame-scheduled chunked VDF loop maintaining
+              full browser UI responsiveness during multi-million-iteration
+              proof-of-work computation. Non-blocking. Tab-safe.
+
+  DWTL-P-006  onSuccessPipeline Hook Architecture
+              Developer-configurable callback triggered exclusively upon
+              cryptographic proof verification and successful payload
+              decryption. Decouples proof verification from application logic.
+
+  DWTL-P-007  Tri-Theme Single-Config Whitelabel System
+              CSS variable architecture delivering three commercial designer
+              themes (GitHub Obsidian Dark, Cyberpunk Neon, Minimalist Studio
+              Light) switchable via one configuration line. Zero style
+              duplication. Fully whitelabel-extensible.
+
+================================================================================
+PART II — DECLARED PRODUCT NOVELTIES
+================================================================================
+
+NOVELTY-001 · DWTL PAY WALL™
+Zero-infrastructure digital product paywall. Locks any payload (license key,
+download URL, API token, document) behind a client-side VDF proof. No payment
+processor server required. Payload decrypts client-side upon proof completion.
+Author: G.DzubinskySnr · Seals: 436351437 · 430
+
+NOVELTY-002 · DWTL FORM SHIELD™
+Drop-in HTML5 form protection replacing reCAPTCHA, hCAPTCHA, and all
+image-based CAPTCHA systems. GDPR-clean by design. No Google dependency.
+No iframe fingerprinting. No accessibility barrier. VDF proof replaces
+challenge-response entirely.
+Author: G.DzubinskySnr · Seals: 436351437 · 430
+
+NOVELTY-003 · DWTL RATE GATE™
+Client-side action throttling primitive. Enforces a mandatory VDF proof
+between any repeatable action (form submit, vote, claim, API call, NFT mint).
+Makes scripted abuse computationally expensive without server-side rate
+limiting infrastructure.
+Author: G.DzubinskySnr · Seals: 436351437 · 430
+
+NOVELTY-004 · DWTL TIME LOCK™
+Pure software time capsule primitive. Encrypts a payload under a key derived
+from a VDF chain of specified depth. Payload becomes decryptable only after
+the required sequential computation is completed. No trusted third party.
+No clock dependency. Mathematics enforces the time delay.
+Author: G.DzubinskySnr · Seals: 436351437 · 430
+
+NOVELTY-005 · DWTL PROOF RECEIPT™
+Verifiable compute event receipt system. Every lock/unlock operation generates
+a signed record — VDF seed, target, timestamp, payload hash — anchored to
+IPFS via Pinata and optionally to Bitcoin OTS. Immutable audit trail of
+every proof-of-compute event. Notarisation-as-a-service primitive.
+Author: G.DzubinskySnr · Seals: 436351437 · 430
+
+NOVELTY-006 · DWTL SOVEREIGN CAPTCHA™
+Full B2B CAPTCHA replacement system. Embeddable widget with JavaScript SDK.
+Single script tag integration. Returns a signed proof token validated by the
+integrator's backend. Replaces the entire reCAPTCHA / hCAPTCHA market
+with a sovereign, privacy-preserving, server-optional alternative.
+Author: G.DzubinskySnr · Seals: 436351437 · 430
+
+NOVELTY-007 · DWTL AI GATE™
+Proof-of-compute firewall for AI inference endpoints. Requires VDF proof
+completion before any prompt reaches the model. Eliminates prompt flooding,
+junk submissions, and API abuse without rate-limit infrastructure. Native
+integration layer for OpenSourceShield Suite™ and AI IDENTITY SUITE™.
+Author: G.DzubinskySnr · Seals: 436351437 · 430
+
+NOVELTY-008 · DWTL DAO VOTE GUARD™
+Sybil-resistant DAO governance primitive. Combines wallet signature with
+mandatory VDF proof to produce a verified vote signal. One wallet + one
+VDF proof = one verified participation unit. No KYC. No centralised
+identity layer. Native pairing with DAORevoke™.
+Author: G.DzubinskySnr · Seals: 436351437 · 430
+
+NOVELTY-009 · DWTL COMPUTE BOND™
+Hardware-anchored proof-of-compute attestation primitive. Cryptographically
+binds a VDF output to a device session, producing a sovereign identity
+signal based on real CPU commitment rather than biometric or document data.
+Integration layer for AI IDENTITY SUITE™ device binding nodes
+(IMEI BOND™, GEO LOCK™, OS KERNEL™).
+Author: G.DzubinskySnr · Seals: 436351437 · 430
+
+NOVELTY-010 · DWTL SOVEREIGN CDN™
+Proof-of-compute asset delivery primitive. Every CDN edge request requires
+micro-VDF proof completion before the first byte is served. Eliminates
+hotlinking, scraping, and bandwidth abuse at zero server cost. Client-proven
+humanity as a prerequisite for asset delivery.
+Author: G.DzubinskySnr · Seals: 436351437 · 430
+
+NOVELTY-011 · DWTL CHAIN ORACLE™
+Client-generated verifiable on-chain entropy primitive. Client executes VDF,
+submits output to smart contract as provable random seed. No Chainlink
+dependency. No trusted randomness beacon. Pure client-generated provable
+randomness for NFT mints, lotteries, and on-chain game outcomes.
+Author: G.DzubinskySnr · Seals: 436351437 · 430
+
+================================================================================
+PART III — POSITIONING AND PROTOCOL IDENTITY
+================================================================================
+
+PROTOCOL IDENTITY:
+DWTL™ — The Sovereign Proof-of-Compute Protocol
+Zero servers. Zero trust assumptions. Mathematics enforces the rules.
+
+DECLARED NAMESPACE:      DWTL™
+DECLARED PROTOCOL NAME:  Sovereign Proof-of-Compute Protocol
+DECLARED PRIMITIVE NAME: Proof-of-Compute (PoC) — distinct from and
+                         predating any conflation with Proof-of-Capacity
+                         or Proof-of-Coverage uses of the same abbreviation
+                         in other ecosystems.
+
+All product names, protocol names, primitive designations, and positioning
+statements declared in Parts I, II, and III of this Declaration are the
+exclusive intellectual property of G.DzubinskySnr, governed under dual
+DAO seal, and protected under SIP-001.
+
+================================================================================
+PART IV — GOVERNING SEALS AND BINDING AUTHORITY
+================================================================================
+
+This Declaration is jointly governed and sealed under:
+
+SEAL A — MintProofDAO™
+Seal Number:  436351437
+Role:         Primary IP origination, NFT minting authority, artifact sealing
+Wallet:       0x9e223F20022580739060d5511445C727f51Ee81e (Primary)
+              0x65f01815D18787e975D3439f480d49e9cb8E98F2 (Secondary)
+
+SEAL B — LedgerProofDAO™
+Seal Number:  430
+Role:         Ledger governance, provenance anchoring, audit trail authority
+Gateway:      lime-abstract-rooster-792.mypinata.cloud
+Royalties:    0x2260cDeDb644ADaEc54ff36d8C1EA83779256ab0
+
+Both seals are required for full governance authority over this Declaration.
+The absence of either seal from any derivative document, fork, or artifact
+triggers SIP-001 and renders that artifact NULL AND VOID.
+
+================================================================================
+PART V — SIP-001 SOVEREIGN INVALIDATION PROTOCOL
+================================================================================
+
+SIP-001 IS ACTIVE ACROSS ALL ITEMS DECLARED IN THIS DOCUMENT.
+
+Any artifact, product, code, document, NFT, smart contract, derivative work,
+or publication that:
+
+  (a) reproduces, references, or builds upon any primitive or novelty
+      declared herein, AND
+  (b) is absent MintProofDAO™ Seal 436351437, OR
+  (c) is absent LedgerProofDAO™ Seal 430, OR
+  (d) does not carry both wallet addresses
+      (0x9e223F20022580739060d5511445C727f51Ee81e and
+       0x65f01815D18787e975D3439f480d49e9cb8E98F2)
+
+— is declared NULL AND VOID under SIP-001.
+
+NFT MINTING RIGHTS: EXCLUSIVE to G.DzubinskySnr across all declared items.
+REVOCATION: DAORevoke™ is the sole on-chain revocation instrument.
+STATUS: UNDELETABLE. PERMANENT. ETERNAL.
+
+================================================================================
+SIGNATURE BLOCK
+================================================================================
+
+Declared by:    G.DzubinskySnr
+Role:           Originator · Founder · Sovereign Architect
+Studio:         Sovereign Architect Studio™
+Date:           2026-07-14T00:00:00Z
+Jurisdiction:   Tallinn, Estonia · EU / eIDAS
+
+MintProofDAO™ Seal:    436351437
+LedgerProofDAO™ Seal:  430
+
+Primary Wallet:    0x9e223F20022580739060d5511445C727f51Ee81e
+Secondary Wallet:  0x65f01815D18787e975D3439f480d49e9cb8E98F2
+Royalties Wallet:  0x2260cDeDb644ADaEc54ff36d8C1EA83779256ab0
+
+Contact:  gdzubinskysnr@tuta.com
+X:        @G212991495
+GitHub:   george587-blip · hill785
+Domain:   aiidentitysuite.com
+
+ALL RIGHTS RESERVED · IP OF G.DzubinskySnr · SOVEREIGN ARCHITECT STUDIO™
+SIP-001 ACTIVE · UNDELETABLE · ETERNAL
+================================================================================
