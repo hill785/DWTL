@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DWTL™ — Sovereign Proof-of-Compute Protocol</title>
+<meta name="description" content="DWTL™ — Client-side Verifiable Delay Function. Zero servers. Zero trust assumptions. Mathematics enforces the rules." />
+<style>
+  /* ── TOKENS ── */
+  :root {
+    --ink:       #0d0f12;
+    --surface:   #111418;
+    --panel:     #181c22;
+    --border:    #232830;
+    --accent:    #00e5ff;
+    --accent2:   #7b61ff;
+    --warn:      #ff6b35;
+    --text:      #c9d1d9;
+    --muted:     #6e7681;
+    --white:     #f0f6fc;
+    --font-mono: 'JetBrains Mono', 'Fira Mono', 'Courier New', monospace;
+    --font-ui:   'Inter', system-ui, sans-serif;
+    --radius:    6px;
+    --glow:      0 0 24px rgba(0,229,255,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 15px;
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  h1,h2,h3,h4 { font-family: var(--font-mono); color: var(--white); letter-spacing: -0.02em; }
+  h1 { font-size: clamp(1.8rem, 6vw, 3.2rem); line-height: 1.1; }
+  h2 { font-size: clamp(1.2rem, 4vw, 1.8rem); margin-bottom: 0.5rem; }
+  h3 { font-size: 1rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+  p  { color: var(--text); max-width: 62ch; }
+  a  { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code { font-family: var(--font-mono); font-size: 0.85em; background: var(--panel); padding: 2px 6px; border-radius: 3px; color: var(--accent); }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 1.25rem; }
+  section { padding: 4rem 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(13,15,18,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.9rem 1.25rem;
+  }
+  .nav-inner {
+    max-width: 900px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .nav-logo {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .nav-logo span { color: var(--muted); font-weight: 400; font-size: 0.8rem; }
+  .seal-badge {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 3px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    padding: 5rem 0 4rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 20px; height: 1px;
+    background: var(--accent);
+  }
+  .hero-title em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    margin-top: 1.25rem;
+    font-size: 1.05rem;
+    color: var(--text);
+    max-width: 52ch;
+    line-height: 1.7;
+  }
+  .hero-cta {
+    display: flex; flex-wrap: wrap; gap: 0.75rem;
+    margin-top: 2rem;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.65rem 1.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--ink);
+  }
+  .btn-primary:hover { background: #33eaff; box-shadow: var(--glow); text-decoration: none; }
+  .btn-outline {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+  }
+  .btn-outline:hover { background: rgba(0,229,255,0.08); text-decoration: none; }
+
+  /* ── VDF DEMO ── */
+  .vdf-demo {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+  }
+  .vdf-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .status-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--warn);
+    display: inline-block;
+    margin-right: 6px;
+    animation: pulse 2s infinite;
+  }
+  .status-dot.active { background: #3fb950; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  .vdf-progress {
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    margin: 0.75rem 0;
+    overflow: hidden;
+  }
+  .vdf-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    width: 0%;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 8px var(--accent);
+  }
+  .vdf-stats {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+  }
+  .vdf-stat { text-align: center; }
+  .vdf-stat .val { color: var(--accent); font-size: 1rem; font-weight: 700; display: block; }
+  .vdf-stat .lbl { color: var(--muted); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .lock-btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: var(--accent);
+    color: var(--ink);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+  }
+  .lock-btn:hover { background: #33eaff; box-shadow: var(--glow); }
+  .lock-btn:disabled { background: var(--border); color: var(--muted); cursor: not-allowed; box-shadow: none; }
+
+  .unlock-result {
+    display: none;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(63,185,80,0.08);
+    border: 1px solid #3fb950;
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    color: #3fb950;
+    word-break: break-all;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .steps {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: rgba(0,229,255,0.08);
+    border: 1px solid rgba(0,229,255,0.2);
+    width: 2.5rem; height: 2.5rem;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: var(--radius);
+    flex-shrink: 0;
+  }
+  .step-body h4 { color: var(--white); font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.25rem; }
+  .step-body p  { font-size: 0.9rem; color: var(--muted); max-width: none; }
+
+  /* ── PRODUCTS GRID ── */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .product-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .product-card:hover {
+    border-color: rgba(0,229,255,0.3);
+    box-shadow: 0 0 16px rgba(0,229,255,0.06);
+  }
+  .product-tag {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent2);
+    background: rgba(123,97,255,0.1);
+    border: 1px solid rgba(123,97,255,0.2);
+    padding: 2px 7px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 0.65rem;
+  }
+  .product-card h4 {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+  .product-card p { font-size: 0.85rem; color: var(--muted); max-width: none; }
+
+  /* ── MATH BLOCK ── */
+  .math-block {
+    background: var(--panel);
+    border-left: 3px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .math-block .comment { color: var(--muted); }
+
+  /* ── CREDENTIALS ── */
+  .cred-block {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.9;
+    word-break: break-all;
+    margin-top: 1.5rem;
+  }
+  .cred-block .key   { color: var(--accent2); }
+  .cred-block .val   { color: var(--text); }
+  .cred-block .seal  { color: var(--accent); font-weight: 700; }
+  .cred-block .void  { color: var(--warn); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2.5rem 1.25rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .footer-inner { max-width: 900px; margin: 0 auto; }
+  .footer-logo {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .footer-links {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+  }
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    line-height: 2;
+    margin-top: 1rem;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex; align-items: center; gap: 1rem;
+    margin: 0.5rem 0 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+  .divider::before, .divider::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (min-width: 640px) {
+    .hero-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+    .steps { grid-template-columns: 1fr 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">DWTL™ <span>Proof-of-Compute</span></div>
+    <div class="seal-badge">MintProofDAO™ · Seal 436351437</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Sovereign Protocol · v2.1.1</div>
+        <h1 class="hero-title">
+          Deterministic<br/>
+          Workflow<br/>
+          <em>Time Lock™</em>
+        </h1>
+        <p class="hero-sub">
+          Client-side Verifiable Delay Function over Mersenne prime M31.
+          Zero servers. Zero trust assumptions. Mathematics enforces the rules.
+        </p>
+        <div class="hero-cta">
+          <a href="#demo" class="btn btn-primary">▶ Live Demo</a>
+          <a href="https://github.com/hill785/DWTL" target="_blank" class="btn btn-outline">GitHub Repo</a>
+        </div>
+      </div>
+
+      <!-- LIVE VDF DEMO -->
+      <div id="demo">
+        <div class="vdf-demo">
+          <div class="vdf-header">
+            <span><span class="status-dot" id="statusDot"></span><span id="statusText">READY</span></span>
+            <span id="envBadge">ENV: —</span>
+          </div>
+
+          <div style="font-size:0.75rem; color:var(--muted); margin-bottom:0.5rem;">PAYLOAD</div>
+          <input id="payloadInput" type="text"
+            value="DWTL_SOVEREIGN_PROOF_001"
+            style="width:100%; background:var(--ink); border:1px solid var(--border); color:var(--white); font-family:var(--font-mono); font-size:0.8rem; padding:0.5rem 0.75rem; border-radius:var(--radius); outline:none; margin-bottom:0.75rem;"
+          />
+
+          <div style="font-size:0.65rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.3rem;">VDF Progress · 100,000 iterations</div>
+          <div class="vdf-progress"><div class="vdf-bar" id="vdfBar"></div></div>
+
+          <div class="vdf-stats">
+            <div class="vdf-stat"><span class="val" id="iterVal">0</span><span class="lbl">Iterations</span></div>
+            <div class="vdf-stat"><span class="val" id="timeVal">0ms</span><span class="lbl">Elapsed</span></div>
+            <div class="vdf-stat"><span class="val" id="hashVal">—</span><span class="lbl">VDF Output</span></div>
+          </div>
+
+          <button class="lock-btn" id="lockBtn" onclick="runVDF()">🔐 COMPUTE PROOF</button>
+          <div class="unlock-result" id="unlockResult"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <h3>Protocol</h3>
+    <h2>How DWTL™ Works</h2>
+    <div class="divider">Sequential · Non-Parallelisable · Session-Unique</div>
+
+    <div class="math-block">
+      x₀ = seed mod M31 &nbsp;&nbsp;<span class="comment">// M31 = 2³¹ − 1 = 2,147,483,647</span><br/>
+      xₙ₊₁ = xₙ² mod M31 &nbsp;<span class="comment">// sequential squaring — cannot be GPU-accelerated</span><br/>
+      key = SHA-256(xₙ) &nbsp;&nbsp;&nbsp;<span class="comment">// VDF output → symmetric key</span>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <h4>Ephemeral Nonce</h4>
+          <p>16-byte cryptographically random nonce generated per page load via <code>crypto.getRandomValues()</code>. Non-replayable across sessions.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h4>Verifiable Delay Function</h4>
+          <p>Sequential modular squaring over M31. Every attacker pays the same CPU cost. No parallelism. No GPU bypass.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <h4>Key Derivation</h4>
+          <p>VDF output hashed via SHA-256 (Web Crypto API) to produce a 32-byte symmetric key. Key is unreachable without completing the VDF.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <h4>XOR Stream Cipher</h4>
+          <p>Payload encrypted client-side. Decryption requires re-running the exact VDF chain. Proof-of-compute is mandatory.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-body">
+          <h4>Pipeline Hook</h4>
+          <p>On unlock, <code>onSuccessPipeline()</code> fires — giving integrators a hook for redirect, token issuance, or any downstream logic.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">06</div>
+        <div class="step-body">
+          <h4>WASM Edition</h4>
+          <p>113-byte hand-assembled WebAssembly module using native <code>i64.mul</code> + <code>i64.rem_u</code>. 5× faster. JS fallback included.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <h3>Ecosystem</h3>
+    <h2>DWTL™ Product Suite</h2>
+    <div class="divider">11 Sovereign Novelties · SIP-001 Active</div>
+
+    <div class="products">
+      <div class="product-card">
+        <div class="product-tag">PAYWALL</div>
+        <h4>DWTL PAY WALL™</h4>
+        <p>Zero-infrastructure digital product paywall. Locks any payload behind client-side VDF proof. No payment server required.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">CAPTCHA</div>
+        <h4>DWTL FORM SHIELD™</h4>
+        <p>Drop-in reCAPTCHA replacement. GDPR-clean. No Google dependency. No iframe fingerprinting. VDF proof replaces challenge-response.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">RATE LIMIT</div>
+        <h4>DWTL RATE GATE™</h4>
+        <p>Client-side action throttling. Enforces mandatory VDF proof between repeatable actions. Makes scripted abuse computationally expensive.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">TIME CAPSULE</div>
+        <h4>DWTL TIME LOCK™</h4>
+        <p>Pure software time capsule. Payload becomes decryptable only after required sequential computation. No trusted third party.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">AUDIT</div>
+        <h4>DWTL PROOF RECEIPT™</h4>
+        <p>Verifiable compute event receipt. Every lock/unlock anchored to IPFS via Pinata and Bitcoin OTS. Immutable audit trail.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">B2B</div>
+        <h4>DWTL SOVEREIGN CAPTCHA™</h4>
+        <p>Full B2B CAPTCHA replacement. Single script tag integration. Returns signed proof token. Replaces the entire reCAPTCHA market.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">AI SECURITY</div>
+        <h4>DWTL AI GATE™</h4>
+        <p>Proof-of-compute firewall for AI endpoints. Requires VDF proof before any prompt reaches the model. Eliminates prompt flooding.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">DAO</div>
+        <h4>DWTL DAO VOTE GUARD™</h4>
+        <p>Sybil-resistant governance primitive. Wallet signature + VDF proof = verified vote. No KYC. Native pairing with DAORevoke™.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">IDENTITY</div>
+        <h4>DWTL COMPUTE BOND™</h4>
+        <p>Hardware-anchored proof-of-compute attestation. Binds VDF output to device session. Integration layer for AI IDENTITY SUITE™.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">CDN</div>
+        <h4>DWTL SOVEREIGN CDN™</h4>
+        <p>Proof-of-compute asset delivery. Every CDN edge request requires micro-VDF before first byte is served. Eliminates hotlinking.</p>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">ON-CHAIN</div>
+        <h4>DWTL CHAIN ORACLE™</h4>
+        <p>Client-generated verifiable on-chain entropy. No Chainlink dependency. Pure client-generated provable randomness for NFT mints.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section id="sovereign">
+  <div class="container">
+    <h3>Sovereign IP</h3>
+    <h2>Cryptographic Credentials</h2>
+    <div class="divider">MintProofDAO™ · LedgerProofDAO™ · SIP-001</div>
+
+    <div class="cred-block">
+      <span class="key">AUTHOR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class="val">G.DzubinskySnr</span><br/>
+      <span class="key">STUDIO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class="val">Sovereign Architect Studio™</span><br/>
+      <span class="key">JURISDICTION &nbsp;&nbsp;&nbsp;</span> <span class="val">Tallinn, Estonia — EU / eIDAS</span><br/>
+      <span class="key">SEAL-A &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class="seal">MintProofDAO™ · 436351437</span><br/>
+      <span class="key">SEAL-B &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class="seal">LedgerProofDAO™ · 430</span><br/>
+      <span class="key">WALLET-PRIMARY &nbsp;</span> <s
