@@ -4,8 +4,8 @@ Determenistic Workflow Time Lock,,
 
 **Author:** G.DzubinskySnr
 **Studio:** Sovereign Architect Studio™
-**Governance:** MintProofDAO™ | LedgerProofDAO™
-**Seal:** 436351437
+**Governance:** MintProofDAO™ | LedgerProofDAO™ seal 430
+ Monument -436351437
 **Primary Wallet:** 0x9e223F20022580739060d5511445C727f51Ee81e
 **Secondary Wallet:** 0x65f01815D18787e975D3439f480d49e9cb8E98F2
 **Royalties Wallet:** 0x2260cDeDb644ADaEc54ff36d8C1EA83779256ab0
