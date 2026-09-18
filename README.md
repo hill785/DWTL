@@ -1,4 +1,4 @@
-Ii# DWTL
+
 Determenistic Workflow Time Lock,,
 # DWTL Cryptographic Gateway Node Core
 
