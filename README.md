@@ -1,6 +1,6 @@
 DWTL™. 
 Determenistic Workflow Time Lock,,
-# DWTL Cryptographic Gateway Node Core
+# DWTL™ Cryptographic Gateway Node Core
 
 **Author:** G.DzubinskySnr
 **Studio:** Sovereign Architect Studio™
@@ -18,12 +18,12 @@ No export allowed!NO NFT, token minting owner only.No mirroring, no reverse engi
 
 ## 1. Overview
 
-DWTL Cryptographic Gateway Node Core is a single-file HTML5 anti-bot proof-of-work component. It forces client-side CPU computation through a Verifiable Delay Function before allowing any protected payload to be decrypted. No servers, no APIs, no build toolchain. Drop one file into any web project and configure via a single JavaScript object.
+DWTL™ Cryptographic Gateway Node Core is a single-file HTML5 anti-bot proof-of-work component. It forces client-side CPU computation through a Verifiable Delay Function before allowing any protected payload to be decrypted. No servers, no APIs, no build toolchain. Drop one file into any web project and configure via a single JavaScript object.
 
 The component ships in two editions:
 
-- **JS Edition** — `DWTL-Cryptographic-Gateway.html` — pure JavaScript, fully editable, uses Mersenne M31 exact modular multiplication at 1,000,000 iterations default.
-- **WASM Edition** — `DWTL-Cryptographic-Gateway-WASM.html` — WebAssembly i64 core inlined as base64, 5,000,000 iterations default, JS fallback included.
+- **JS Edition** — `DWTL™-Cryptographic-Gateway.html` — pure JavaScript, fully editable, uses Mersenne M31 exact modular multiplication at 1,000,000 iterations default.
+- **WASM Edition** — `DWTL™-Cryptographic-Gateway-WASM.html` — WebAssembly i64 core inlined as base64, 5,000,000 iterations default, JS fallback included.
 
 ---
 
@@ -31,9 +31,9 @@ The component ships in two editions:
 
 ```
 /
-├── DWTL-Cryptographic-Gateway.html       JS Edition — primary component
-├── DWTL-Cryptographic-Gateway-WASM.html  WASM Edition — high-intensity variant
-├── DWTL-Marketplace-Page.html            Product listing page with live theme previews
+├── DWTL™-Cryptographic-Gateway.html       JS Edition — primary component
+├── DWTL™-Cryptographic-Gateway-WASM.html  WASM Edition — high-intensity variant
+├── DWT™L-Marketplace-Page.html            Product listing page with live theme previews
 ├── dwtl_vdf_core.wat                     WASM source (WebAssembly Text Format)
 ├── dwtl_vdf_core.wasm                    WASM binary (113 bytes, hand-assembled)
 ├── README.md                             This file
