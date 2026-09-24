@@ -1,4 +1,4 @@
-DWTL. 
+DWTL™. 
 Determenistic Workflow Time Lock,,
 # DWTL Cryptographic Gateway Node Core
 
@@ -12,7 +12,7 @@ Determenistic Workflow Time Lock,,
 **Jurisdiction:** Tallinn, Estonia — EU / eIDAS
 #Author G.Dzubinsky snr, authorship rights protected by EU directives 2026.
 **SIP-001:** ACTIVE — any artifact absent MintProofDAO™ Seal 436351437 or either wallet is NULL AND VOID.No branching allowed from main strictly prohibited!
-No export allowed!
+No export allowed!NO NFT, token minting owner only.No mirroring, no reverse engineering,no mimicking, no cloning,no forking,strictly prohibited 🚫,military grade , institutional grade.
 
 ---
 
